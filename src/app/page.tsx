@@ -1,6 +1,7 @@
 import Feature from "@/components/home/feature";
 import Hero from "@/components/home/hero";
 import EndCTA from "@/components/shared/end-cta";
+import Footer from "@/components/shared/footer";
 import Header from "@/components/shared/header";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Feature />
       <EndCTA />
+      <Footer />
     </>
   );
 }
