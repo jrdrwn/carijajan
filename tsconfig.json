@@ -25,15 +25,6 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "@generated/sql": [
-        "./.prisma/client/sql"
-      ],
-      "@generated/client": [
-        "./.prisma/client"
-      ],
-      "@generated/prisma": [
-        "./prisma"
       ]
     }
   },
