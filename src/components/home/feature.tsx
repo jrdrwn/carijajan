@@ -3,22 +3,23 @@ import {
   CardContent,
   CardDescription,
   CardTitle,
-} from "@/components/ui/card";
-import Image from "next/image";
+} from '@/components/ui/card';
+import Image from 'next/image';
+
 export default function Feature() {
   return (
     <section className="container mx-auto py-16">
       <div className="grid grid-cols-3 grid-rows-2 gap-4">
-        <Card className="row-span-2 ">
+        <Card className="row-span-2">
           <CardContent className="flex flex-col gap-4">
             <Image
               src={
-                "https://images.unsplash.com/photo-1620802421041-cfb402036374"
+                'https://images.unsplash.com/photo-1620802421041-cfb402036374'
               }
               alt="hero"
               width={800}
               height={800}
-              className="rounded-lg object-cover object-center h-110"
+              className="h-110 rounded-lg object-cover object-center"
             />
             <CardTitle className="text-lg md:text-xl lg:text-2xl">
               Mengapa Kami Ada?
@@ -38,12 +39,12 @@ export default function Feature() {
           <CardContent className="flex flex-col gap-4">
             <Image
               src={
-                "https://images.unsplash.com/photo-1600728619239-d2a73f7aa541"
+                'https://images.unsplash.com/photo-1600728619239-d2a73f7aa541'
               }
               alt="hero"
               width={800}
               height={800}
-              className="rounded-lg object-cover object-center h-50"
+              className="h-50 rounded-lg object-cover object-center"
             />
             <CardTitle className="text-lg md:text-xl lg:text-2xl">
               Bukan Tempat untuk Memesan Makanan
@@ -58,12 +59,12 @@ export default function Feature() {
           <CardContent className="flex flex-col gap-4">
             <Image
               src={
-                "https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e"
+                'https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e'
               }
               alt="hero"
               width={800}
               height={800}
-              className="rounded-lg object-cover object-center h-25"
+              className="h-25 rounded-lg object-cover object-center"
             />
             <CardTitle className="text-lg md:text-xl lg:text-2xl">
               Untuk Pedagang Kecil, Bukan untuk Restoran Besar!
@@ -79,12 +80,12 @@ export default function Feature() {
           <CardContent className="flex flex-col gap-4">
             <Image
               src={
-                "https://images.unsplash.com/photo-1572000423136-e94e163fb50b"
+                'https://images.unsplash.com/photo-1572000423136-e94e163fb50b'
               }
               alt="hero"
               width={800}
               height={800}
-              className="rounded-lg object-cover object-center h-50 w-full"
+              className="h-50 w-full rounded-lg object-cover object-center"
             />
             <CardTitle className="text-lg md:text-xl lg:text-2xl">
               Dukung Usaha Mikro Kecil dan Menengah (UMKM) Lokal!

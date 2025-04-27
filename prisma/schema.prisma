@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "generated/prisma/client"
+  previewFeatures = ["typedSql"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model lokasi {
+  id          Int       @id @default(autoincrement())
+  pedagang_id Int?
+  latitude    Decimal?  @db.Decimal
+  longitude   Decimal?  @db.Decimal
+  alamat      String?
+  kota        String?   @db.VarChar
+  pedagang    pedagang? @relation(fields: [pedagang_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model pedagang {
+  id             Int            @id @default(autoincrement())
+  nama           String?        @db.VarChar
+  deskripsi      String?
+  jenis_dagangan String?        @db.VarChar
+  foto_url       String?
+  jam_buka       DateTime?      @db.Time(6)
+  jam_tutup      DateTime?      @db.Time(6)
+  hari_mangkal   String[]       @db.VarChar
+  status         String?        @db.VarChar
+  no_hp          String?        @db.VarChar
+  created_at     DateTime?      @db.Timestamp(6)
+  lokasi         lokasi[]
+  pedagang_tag   pedagang_tag[]
+}
+
+model pedagang_tag {
+  id          Int       @id @default(autoincrement())
+  pedagang_id Int?
+  tag_id      Int?
+  pedagang    pedagang? @relation(fields: [pedagang_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tags        tags?     @relation(fields: [tag_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model tags {
+  id           Int            @id @default(autoincrement())
+  nama         String?        @db.VarChar
+  pedagang_tag pedagang_tag[]
+}

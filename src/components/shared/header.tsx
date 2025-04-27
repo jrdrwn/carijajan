@@ -1,40 +1,41 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu';
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Menu, MousePointerClick } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+} from '@/components/ui/sheet';
+import { cn } from '@/lib/utils';
+import { Menu, MousePointerClick } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const menus = [
     {
-      title: "Beranda",
-      href: "/",
+      title: 'Beranda',
+      href: '/',
     },
     {
-      title: "Cari Pedagang",
-      href: "/cari-pedagang",
+      title: 'Pencarian',
+      href: '/cari-pedagang',
     },
   ];
 
   const pathname = usePathname();
 
   return (
-    <header className=" w-full border-border border-b">
-      <div className="container mx-auto flex h-16  items-center justify-between px-2 rounded-none ">
+    <header className="w-full border-b border-border">
+      <div className="container mx-auto flex h-16 items-center justify-between rounded-none px-2">
         <Link
           href="/"
           scroll={false}
@@ -52,7 +53,12 @@ export default function Header() {
               <NavigationMenuItem key={menu.title}>
                 <NavigationMenuLink
                   className={navigationMenuTriggerStyle({
-                    className: "bg-transparent ",
+                    className: cn(
+                      'bg-transparent',
+                      pathname === menu.href
+                        ? 'underline underline-offset-2'
+                        : '',
+                    ),
                   })}
                   active={pathname === menu.href}
                   asChild

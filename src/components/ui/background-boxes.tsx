@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import React from "react";
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import React from 'react';
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const rows = new Array(48).fill(1);
@@ -13,15 +13,15 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
         transform: `translate(20%,-20%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
       }}
       className={cn(
-        "absolute left-1/4 -mt-10 -top-1/4 flex  -translate-x-1/2 -translate-y-1/2 w-full h-full ",
-        className
+        'absolute -top-1/4 left-1/4 -mt-10 flex h-full w-full -translate-x-1/2 -translate-y-1/2',
+        className,
       )}
       {...rest}
     >
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="relative h-8  w-16  border-l border-secondary-foreground/15"
+          className="relative h-8 w-16 border-l border-secondary-foreground/15"
         >
           {cols.map((_, j) => (
             <motion.div
@@ -36,7 +36,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                 transition: { duration: 2 },
               }}
               key={`col` + j}
-              className="relative h-8  w-16 border-r border-t border-secondary-foreground/15"
+              className="relative h-8 w-16 border-t border-r border-secondary-foreground/15"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg
@@ -45,7 +45,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="pointer-events-none absolute left-[-22px] top-[-14px] h-6 w-10 stroke-[1px] text-secondary-foreground/15"
+                  className="pointer-events-none absolute top-[-14px] left-[-22px] h-6 w-10 stroke-[1px] text-secondary-foreground/15"
                 >
                   <path
                     strokeLinecap="round"
