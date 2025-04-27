@@ -2,8 +2,8 @@ import {
   findPedagang,
   findPedagangAndLocation,
   findPedagangById,
-} from '@prisma/generated/prisma/client/sql';
-import prisma from '@prisma/index';
+} from '@db/generated/prisma/client/sql';
+import prisma from '@db/index';
 import { Hono } from 'hono';
 import { handle } from 'hono/vercel';
 
