@@ -1,12 +1,11 @@
-import { Hono } from 'hono';
-import { handle } from 'hono/vercel';
-
-import prisma from '../../../../prisma';
+import prisma from '@generated/prisma';
 import {
   findPedagang,
   findPedagangAndLocation,
   findPedagangById,
-} from '../../../../prisma/generated/prisma/sql';
+} from '@generated/sql';
+import { Hono } from 'hono';
+import { handle } from 'hono/vercel';
 
 const app = new Hono().basePath('/api');
 
