@@ -5,7 +5,7 @@ import {
   findPedagang,
   findPedagangAndLocation,
   findPedagangById,
-} from '../../../../.prisma/client/sql';
+} from '../../../../node_modules/.prisma/client/sql';
 import prisma from '../../../../prisma';
 
 const app = new Hono().basePath('/api');
