@@ -44,4 +44,4 @@ certificates
 .vscode
 prisma/generated
 src/generated
-prisma/node_modules
+.prisma
