@@ -75,7 +75,7 @@ export default function CardPedagang(pedagang: IPedagang) {
         <Heart />
       </Button>
       <CardContent>
-        <CardTitle className="line-clamp-2 text-xl lg:text-2xl text-ellipsis">
+        <CardTitle className="line-clamp-2 text-xl text-ellipsis lg:text-2xl">
           {pedagang.nama}
         </CardTitle>
         <div className="mt-2 flex items-center gap-1 text-card-foreground/65">

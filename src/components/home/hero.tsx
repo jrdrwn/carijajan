@@ -63,7 +63,7 @@ export default function Hero() {
           <Input
             type="text"
             placeholder="Contoh: Gorengan Renyah..."
-            className="w-full max-w-3xs placeholder:text-sm lg:placeholder:text-base lg:max-w-[400px] lg:px-4 lg:py-6"
+            className="w-full max-w-3xs placeholder:text-sm lg:max-w-[400px] lg:px-4 lg:py-6 lg:placeholder:text-base"
             onChange={(e) => setQ(e.currentTarget.value)}
             value={q}
           />
