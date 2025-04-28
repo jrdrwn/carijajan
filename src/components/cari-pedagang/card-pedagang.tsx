@@ -65,7 +65,7 @@ export default function CardPedagang(pedagang: IPedagang) {
   return (
     <Card className="relative w-115 pt-42">
       <Image
-        src={'https://images.unsplash.com/photo-1572000423136-e94e163fb50b'}
+        src={pedagang.foto_url}
         alt="hero"
         width={800}
         height={800}
@@ -75,7 +75,7 @@ export default function CardPedagang(pedagang: IPedagang) {
         <Heart />
       </Button>
       <CardContent>
-        <CardTitle className="line-clamp-2 text-2xl text-ellipsis">
+        <CardTitle className="line-clamp-2 text-xl lg:text-2xl text-ellipsis">
           {pedagang.nama}
         </CardTitle>
         <div className="mt-2 flex items-center gap-1 text-card-foreground/65">

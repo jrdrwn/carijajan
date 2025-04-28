@@ -32,7 +32,7 @@ export default function ListPedagang() {
   }, [data]);
 
   return (
-    <section className="container mx-auto py-16">
+    <section className="container mx-auto py-16 px-2 lg:px-0">
       <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-16">
         {pedagang &&
           pedagang.map((pedagang) => (
