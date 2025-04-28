@@ -10,8 +10,8 @@ export default function Feature() {
   return (
     <section className="container mx-auto px-2 py-16 lg:px-0">
       <div className="grid grid-flow-row grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2">
-        <Card className="py-2 lg:row-span-2 lg:py-6">
-          <CardContent className="flex flex-col gap-4 px-2 lg:px-6">
+        <Card className="py-3 lg:row-span-2 lg:py-6">
+          <CardContent className="flex flex-col gap-4 px-3 lg:px-6">
             <Image
               src={
                 'https://images.unsplash.com/photo-1620802421041-cfb402036374'
@@ -35,8 +35,8 @@ export default function Feature() {
             </CardDescription>
           </CardContent>
         </Card>
-        <Card className="py-2 lg:col-span-1 lg:py-6">
-          <CardContent className="flex flex-col gap-4 px-2 lg:px-6">
+        <Card className="py-3 lg:col-span-1 lg:py-6">
+          <CardContent className="flex flex-col gap-4 px-3 lg:px-6">
             <Image
               src={
                 'https://images.unsplash.com/photo-1600728619239-d2a73f7aa541'
@@ -55,8 +55,8 @@ export default function Feature() {
             </CardDescription>
           </CardContent>
         </Card>
-        <Card className="py-2 lg:col-span-1 lg:py-6">
-          <CardContent className="flex flex-col gap-4 px-2 lg:px-6">
+        <Card className="py-3 lg:col-span-1 lg:py-6">
+          <CardContent className="flex flex-col gap-4 px-3 lg:px-6">
             <Image
               src={
                 'https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e'
@@ -76,8 +76,8 @@ export default function Feature() {
             </CardDescription>
           </CardContent>
         </Card>
-        <Card className="py-2 lg:col-span-2 lg:py-6">
-          <CardContent className="flex flex-col gap-4 px-2 lg:px-6">
+        <Card className="py-3 lg:col-span-2 lg:py-6">
+          <CardContent className="flex flex-col gap-4 px-3 lg:px-6">
             <Image
               src={
                 'https://images.unsplash.com/photo-1572000423136-e94e163fb50b'
