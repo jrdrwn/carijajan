@@ -34,18 +34,25 @@ export default function ListPedagang() {
   return (
     <section className="container mx-auto px-2 py-16 lg:px-0">
       <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-16">
-        {pedagang &&
-          pedagang.map((pedagang) => (
-            <CardPedagang key={pedagang.id} {...pedagang} />
-          ))}
         {loading &&
           Array(6)
             .fill(0)
             .map((_, index) => <CardPedagangSkeleton key={index} />)}
+        {!loading &&
+          pedagang &&
+          pedagang.map((pedagang) => (
+            <CardPedagang key={pedagang.id} {...pedagang} />
+          ))}
+        {!newLoading && pedagang.length === 0 && (
+          <p className="w-full text-center text-lg font-semibold text-muted-foreground">
+            Tidak ada pedagang ditemukan
+          </p>
+        )}
         {newLoading &&
           Array(3)
             .fill(0)
             .map((_, index) => <CardPedagangSkeleton key={index} />)}
+
         {error && <p>Error: {error.message}</p>}
       </div>
       <div className="flex justify-center">

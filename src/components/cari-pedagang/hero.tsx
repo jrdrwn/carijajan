@@ -90,7 +90,7 @@ export function Hero() {
         </div>
         <div
           className={cn(
-            'mt-4 flex-wrap items-center justify-center gap-4 overflow-hidden transition-all duration-300 [&>*]:placeholder:text-sm lg:[&>*]:placeholder:text-base',
+            'mt-4 flex-wrap items-center justify-center gap-4 [&>*]:placeholder:text-sm lg:[&>*]:placeholder:text-base',
             filterOpen ? 'flex' : 'hidden',
           )}
         >
