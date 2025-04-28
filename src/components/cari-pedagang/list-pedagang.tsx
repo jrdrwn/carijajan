@@ -38,11 +38,14 @@ export default function ListPedagang() {
           pedagang.map((pedagang) => (
             <CardPedagang key={pedagang.id} {...pedagang} />
           ))}
-        {loading ||
-          (newLoading &&
-            Array(3)
-              .fill(0)
-              .map((_, index) => <CardPedagangSkeleton key={index} />))}
+        {loading &&
+          Array(6)
+            .fill(0)
+            .map((_, index) => <CardPedagangSkeleton key={index} />)}
+        {newLoading &&
+          Array(3)
+            .fill(0)
+            .map((_, index) => <CardPedagangSkeleton key={index} />)}
         {error && <p>Error: {error.message}</p>}
       </div>
       <div className="flex justify-center">
