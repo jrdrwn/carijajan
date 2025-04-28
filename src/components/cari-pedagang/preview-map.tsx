@@ -22,7 +22,11 @@ interface MapProps {
 
 export default function PreviewMap({ center, position }: MapProps) {
   return (
-    <MapContainer center={center} zoom={20} className="size-full rounded-xl">
+    <MapContainer
+      center={center}
+      zoom={20}
+      className="z-0 size-full rounded-xl"
+    >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

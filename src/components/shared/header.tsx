@@ -82,10 +82,10 @@ export default function Header() {
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="lg:hidden">
+            <SheetContent side="left" className="p-4 lg:hidden">
               <SheetTitle>Menu</SheetTitle>
-              <NavigationMenu>
-                <NavigationMenuList className="grid gap-4 p-4">
+              <NavigationMenu className="items-start">
+                <NavigationMenuList className="grid gap-4">
                   {menus.map((menu) => (
                     <NavigationMenuItem key={menu.title}>
                       <NavigationMenuLink
