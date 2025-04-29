@@ -80,7 +80,7 @@ export default function DetailPedagang({ params }: Props) {
     `/api/pedagang/${params.id}`,
   );
   return (
-    <section className="container mx-auto px-2 py-6 lg:px-0">
+    <section className="container mx-auto px-2 py-6">
       {error && (
         <div className="text-center">
           <h1 className="text-3xl font-bold">Error</h1>
