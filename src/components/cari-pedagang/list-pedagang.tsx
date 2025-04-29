@@ -43,7 +43,7 @@ export default function ListPedagang() {
           pedagang.map((pedagang) => (
             <CardPedagang key={pedagang.id} {...pedagang} />
           ))}
-        {!newLoading && pedagang.length === 0 && (
+        {!loading && !newLoading && pedagang.length === 0 && (
           <p className="w-full text-center text-lg font-semibold text-muted-foreground">
             Tidak ada pedagang ditemukan
           </p>
@@ -56,24 +56,26 @@ export default function ListPedagang() {
         {error && <p>Error: {error.message}</p>}
       </div>
       <div className="flex justify-center">
-        <Button
-          variant="outline"
-          onClick={async () => {
-            setNewLoading(true);
-            const res = await fetch(
-              `/api/pedagang?${createQueryString(
-                'skip',
-                pedagang.length.toString(),
-              )}`,
-            );
-            const data = await res.json();
-            setNewLoading(false);
-            setPedagang((prev) => [...prev, ...data]);
-          }}
-          className="mx-auto mt-8"
-        >
-          Load More
-        </Button>
+        {!newLoading && !loading && (
+          <Button
+            variant="outline"
+            onClick={async () => {
+              setNewLoading(true);
+              const res = await fetch(
+                `/api/pedagang?${createQueryString(
+                  'skip',
+                  pedagang.length.toString(),
+                )}`,
+              );
+              const data = await res.json();
+              setNewLoading(false);
+              setPedagang((prev) => [...prev, ...data]);
+            }}
+            className="mx-auto mt-8"
+          >
+            Muat lebih banyak
+          </Button>
+        )}
       </div>
     </section>
   );
