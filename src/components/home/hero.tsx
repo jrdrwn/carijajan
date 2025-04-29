@@ -49,13 +49,13 @@ export default function Hero() {
             30+ Pedagang Baru Telah Ditambahkan!
           </p>
           <span className="rounded-full bg-neutral-500 p-1">
-            <ArrowRight className="size-5 text-neutral-50 xl:size-6" />
+            <ArrowRight className="size-4 text-neutral-50 md:size-5 xl:size-6" />
           </span>
         </div>
-        <h1 className="mt-4 mb-4 max-w-3xl bg-gradient-to-br from-orange-900 to-neutral-500 bg-clip-text text-4xl leading-tight font-bold xl:tracking-wide text-transparent lg:mb-6 xl:mb-8 xl:text-6xl 2xl:text-7xl">
+        <h1 className="mt-4 mb-4 max-w-3xl bg-gradient-to-br from-orange-900 to-neutral-500 bg-clip-text text-4xl leading-tight font-bold text-transparent md:text-5xl lg:mb-6 lg:text-4xl xl:mb-8 xl:text-6xl xl:tracking-wide 2xl:text-7xl">
           Temukan Pedagang Kaki Lima Terdekat di Sekitarmu!
         </h1>
-        <p className="max-w-2xl leading-relaxed xl:tracking-wide xl:text-lg">
+        <p className="mx-auto max-w-2xl leading-relaxed lg:mx-0 xl:text-lg xl:tracking-wide">
           Jelajahi peta untuk menemukan makanan kaki lima favoritmu mulai dari
           bakso keliling, sate gerobak, hingga es doger yang legendaris!
         </p>
@@ -83,7 +83,10 @@ export default function Hero() {
         <div className="mx-auto mt-8 flex w-fit flex-wrap items-center justify-center gap-2 lg:mx-0 2xl:mt-12">
           <span className="mr-2 inline-flex items-center -space-x-4">
             {reviews.avatars.map((avatar, index) => (
-              <Avatar key={index} className="size-12 border-2 border-white">
+              <Avatar
+                key={index}
+                className="size-10 border-2 border-white lg:size-12"
+              >
                 <AvatarImage
                   src={avatar.src}
                   alt={avatar.alt}
@@ -97,14 +100,14 @@ export default function Hero() {
               {[...Array(5)].map((_, index) => (
                 <Star
                   key={index}
-                  className="size-5 fill-orange-400 text-orange-400"
+                  className="size-4 fill-orange-400 text-orange-400 lg:size-5"
                 />
               ))}
               <span className="mr-1 font-semibold">
                 {reviews.rating?.toFixed(1)}
               </span>
             </div>
-            <p className="text-left text-sm font-medium text-muted-foreground md:text-base">
+            <p className="text-left text-sm font-medium text-muted-foreground lg:text-base">
               Dari {reviews.count}+{' '}
               <Link href="#" className="underline underline-offset-2">
                 ulasan
@@ -113,7 +116,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="w-full pt-20 lg:max-w-lg xl:max-w-xl xl:pt-0 2xl:max-w-3xl">
+      <div className="w-full pt-20 sm:mx-auto sm:max-w-lg lg:mx-0 xl:max-w-xl xl:pt-0 2xl:max-w-3xl">
         <div className="relative mx-auto flex items-center justify-center lg:h-65 lg:w-120 xl:h-140 2xl:h-170 2xl:w-180">
           <Image
             src={'https://images.unsplash.com/photo-1572000423136-e94e163fb50b'}
