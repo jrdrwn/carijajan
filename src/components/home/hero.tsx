@@ -39,7 +39,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="container mx-auto flex flex-col justify-center px-2 py-16 lg:flex-row lg:justify-between">
+    <section className="container mx-auto flex flex-col justify-center px-2 py-16 lg:flex-row lg:justify-between lg:pr-2 lg:pl-12">
       <div className="text-center lg:text-start">
         <div className="mx-auto flex w-max items-center gap-2 rounded-full bg-muted px-2 py-1 text-muted-foreground lg:mx-0 xl:gap-4 xl:px-4 xl:py-2">
           <span>
