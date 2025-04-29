@@ -24,7 +24,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="pt-10 md:py-16">
+    <footer className="pt-10 md:px-2 md:py-16">
       <div className="container mx-auto rounded-t-3xl bg-secondary/50 p-4 md:rounded-3xl md:p-8">
         <div className="flex flex-col-reverse flex-wrap items-center justify-center gap-2 md:flex-row md:justify-between">
           <p className="leading-7 [&:not(:first-child)]:mt-6">
