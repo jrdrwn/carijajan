@@ -7,6 +7,8 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -62,6 +64,7 @@ export function CardPedagangSkeleton() {
 }
 
 export default function CardPedagang(pedagang: IPedagang) {
+  const [favorite, setFavorite] = useState(false);
   return (
     <Card className="relative w-115 pt-42">
       <Image
@@ -71,7 +74,15 @@ export default function CardPedagang(pedagang: IPedagang) {
         height={800}
         className="absolute -top-8 left-1/2 h-46 w-[calc(100%-2rem)] -translate-x-1/2 rounded-lg object-cover object-center"
       />
-      <Button size={'icon'} className="absolute top-33 right-8">
+      <Button
+        size={'icon'}
+        variant={favorite ? 'default' : 'secondary'}
+        className="absolute top-33 right-8"
+        onClick={() => {
+          setFavorite(!favorite);
+          toast.info('Fitur ini masih dalam pengembangan');
+        }}
+      >
         <Heart />
       </Button>
       <CardContent>

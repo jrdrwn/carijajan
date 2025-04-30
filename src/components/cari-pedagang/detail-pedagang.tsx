@@ -8,7 +8,8 @@ import { Heart, Phone } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { toast } from 'sonner';
 
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -68,6 +69,7 @@ function DetailPedagangSkeleton() {
 }
 
 export default function DetailPedagang({ params }: Props) {
+  const [favorite, setFavorite] = useState(false);
   const MyMap = useMemo(
     () =>
       dynamic(() => import('@/components/cari-pedagang/preview-map'), {
@@ -130,9 +132,13 @@ export default function DetailPedagang({ params }: Props) {
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Button
-                variant={'outline'}
+                variant={favorite ? 'default' : 'outline'}
                 size={'icon'}
                 className="size-10 rounded-md"
+                onClick={() => {
+                  setFavorite(!favorite);
+                  toast.info('Fitur ini masih dalam pengembangan');
+                }}
               >
                 <Heart />
               </Button>
