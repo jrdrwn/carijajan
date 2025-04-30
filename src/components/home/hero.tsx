@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, BellDot, Star } from 'lucide-react';
+import { ArrowRight, BellDot, Search, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -39,33 +39,35 @@ export default function Hero() {
   };
 
   return (
-    <section className="container mx-auto flex justify-between py-16">
-      <div>
-        <div className="flex w-max items-center gap-4 rounded-full bg-muted px-4 py-2 text-muted-foreground">
+    <section className="container mx-auto flex flex-col justify-center px-2 py-16 lg:flex-row lg:justify-between lg:pr-2 lg:pl-12">
+      <div className="text-center lg:text-start">
+        <div className="mx-auto flex w-max items-center gap-2 rounded-full bg-muted px-2 py-1 text-muted-foreground lg:mx-0 xl:gap-4 xl:px-4 xl:py-2">
           <span>
-            <BellDot className="text-primary" />
+            <BellDot className="size-5 text-primary xl:size-6" />
           </span>
-          <p>30+ Pedagang Baru Telah Ditambahkan!</p>
+          <p className="text-sm xl:text-base">
+            30+ Pedagang Baru Telah Ditambahkan!
+          </p>
           <span className="rounded-full bg-neutral-500 p-1">
-            <ArrowRight className="text-neutral-50" />
+            <ArrowRight className="size-4 text-neutral-50 md:size-5 xl:size-6" />
           </span>
         </div>
-        <h1 className="mt-4 mb-8 max-w-3xl bg-gradient-to-br from-orange-900 to-neutral-500 bg-clip-text text-7xl leading-tight font-bold tracking-wide text-transparent">
+        <h1 className="mt-4 mb-4 max-w-3xl bg-gradient-to-br from-orange-900 to-neutral-500 bg-clip-text text-4xl leading-tight font-bold text-transparent md:text-5xl lg:mb-6 lg:text-4xl xl:mb-8 xl:text-6xl xl:tracking-wide 2xl:text-7xl">
           Temukan Pedagang Kaki Lima Terdekat di Sekitarmu!
         </h1>
-        <p className="max-w-2xl text-lg leading-relaxed tracking-wide">
+        <p className="mx-auto max-w-2xl leading-relaxed lg:mx-0 xl:text-lg xl:tracking-wide">
           Jelajahi peta untuk menemukan makanan kaki lima favoritmu mulai dari
           bakso keliling, sate gerobak, hingga es doger yang legendaris!
         </p>
-        <div className="mt-12 flex items-center gap-4">
+        <div className="mt-8 flex items-center justify-center gap-4 lg:justify-start 2xl:mt-12">
           <Input
             type="text"
             placeholder="Contoh: Gorengan Renyah..."
-            className="w-full max-w-[400px] px-4 py-6"
+            className="w-full max-w-3xs placeholder:text-sm lg:max-w-[350px] lg:px-3 lg:py-5 xl:max-w-[400px] xl:px-4 xl:py-6 xl:placeholder:text-base"
             onChange={(e) => setQ(e.currentTarget.value)}
             value={q}
           />
-          <Button className="px-4 py-6" asChild>
+          <Button className="lg:px-3 lg:py-5 xl:px-4 xl:py-6" asChild>
             <Link
               scroll={false}
               href={{
@@ -73,14 +75,18 @@ export default function Hero() {
                 query: { q },
               }}
             >
-              Cari Pedagang
+              {<Search />}
+              <span className="hidden xl:block">Cari Pedagang</span>
             </Link>
           </Button>
         </div>
-        <div className="mt-12 flex w-fit flex-wrap items-center justify-center gap-2">
+        <div className="mx-auto mt-8 flex w-fit flex-wrap items-center justify-center gap-2 lg:mx-0 2xl:mt-12">
           <span className="mr-2 inline-flex items-center -space-x-4">
             {reviews.avatars.map((avatar, index) => (
-              <Avatar key={index} className="size-12 border-2 border-white">
+              <Avatar
+                key={index}
+                className="size-10 border-2 border-white lg:size-12"
+              >
                 <AvatarImage
                   src={avatar.src}
                   alt={avatar.alt}
@@ -94,14 +100,14 @@ export default function Hero() {
               {[...Array(5)].map((_, index) => (
                 <Star
                   key={index}
-                  className="size-5 fill-orange-400 text-orange-400"
+                  className="size-4 fill-orange-400 text-orange-400 lg:size-5"
                 />
               ))}
               <span className="mr-1 font-semibold">
                 {reviews.rating?.toFixed(1)}
               </span>
             </div>
-            <p className="text-left text-sm font-medium text-muted-foreground md:text-base">
+            <p className="text-left text-sm font-medium text-muted-foreground lg:text-base">
               Dari {reviews.count}+{' '}
               <Link href="#" className="underline underline-offset-2">
                 ulasan
@@ -110,35 +116,35 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="w-1/2">
-        <div className="relative mx-auto flex h-170 w-200 items-center justify-center">
+      <div className="w-full pt-20 sm:mx-auto sm:max-w-lg lg:mx-0 xl:max-w-xl xl:pt-0 2xl:max-w-3xl">
+        <div className="relative mx-auto flex items-center justify-center lg:h-65 lg:w-120 xl:h-140 2xl:h-170 2xl:w-180">
           <Image
             src={'https://images.unsplash.com/photo-1572000423136-e94e163fb50b'}
             alt="hero"
             width={800}
             height={800}
-            className="absolute top-15 right-10 h-40 w-60 rounded-lg object-cover object-center shadow-lg"
+            className="absolute -top-10 right-0 h-20 w-40 rounded-lg object-cover object-center shadow-lg lg:-top-10 lg:right-5 xl:top-5 xl:h-30 xl:w-50 2xl:top-10 2xl:right-5 2xl:h-40 2xl:w-60"
           />
           <Image
             src={'https://images.unsplash.com/photo-1597247003506-42ee1e7bc7dd'}
             alt="hero"
             width={800}
             height={800}
-            className="absolute bottom-60 left-15 h-25 w-50 rounded-lg object-cover object-top shadow-lg"
+            className="absolute bottom-25 left-0 h-20 w-40 rounded-lg object-cover object-top shadow-lg lg:bottom-25 lg:left-10 xl:bottom-60 xl:left-5 xl:h-25 xl:w-50"
           />
           <Image
             src={'https://images.unsplash.com/photo-1514425263458-109317cc1321'}
             alt="hero"
             width={800}
             height={800}
-            className="absolute bottom-15 h-15 w-85 rounded-lg object-cover object-center shadow-lg"
+            className="absolute right-0 -bottom-5 h-10 w-60 rounded-lg object-cover object-center shadow-lg lg:right-auto lg:-bottom-7 xl:bottom-15 xl:h-15 xl:w-85"
           />
           <Image
             src={'https://images.unsplash.com/photo-1733509524469-12fb3d629b7a'}
             alt="hero"
             width={800}
             height={800}
-            className="h-125 w-125 rounded-lg object-cover object-center"
+            className="h-70 w-70 rounded-lg object-cover object-center xl:h-100 xl:w-100 2xl:h-125 2xl:w-125"
           />
         </div>
       </div>

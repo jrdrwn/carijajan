@@ -8,7 +8,7 @@ const app = new Hono().basePath('/api');
 app.get('/pedagang', async (c) => {
   const args = {
     skip: Number(c.req.query('skip') || 0),
-    take: Number(c.req.query('limit') || 3),
+    take: Number(c.req.query('limit') || 6),
     q: c.req.query('q') || '',
     jenis: c.req.query('jenis') || '',
     tag: c.req.query('tag') || '',

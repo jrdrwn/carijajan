@@ -4,11 +4,12 @@ import useFetch from '@/hooks/use-fetch';
 
 import 'leaflet/dist/leaflet.css';
 
-import { Heart } from 'lucide-react';
+import { Heart, Phone } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { toast } from 'sonner';
 
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -68,6 +69,7 @@ function DetailPedagangSkeleton() {
 }
 
 export default function DetailPedagang({ params }: Props) {
+  const [favorite, setFavorite] = useState(false);
   const MyMap = useMemo(
     () =>
       dynamic(() => import('@/components/cari-pedagang/preview-map'), {
@@ -80,7 +82,7 @@ export default function DetailPedagang({ params }: Props) {
     `/api/pedagang/${params.id}`,
   );
   return (
-    <section className="container mx-auto py-6">
+    <section className="container mx-auto px-2 py-6">
       {error && (
         <div className="text-center">
           <h1 className="text-3xl font-bold">Error</h1>
@@ -89,14 +91,14 @@ export default function DetailPedagang({ params }: Props) {
       )}
       {loading && <DetailPedagangSkeleton />}
       {data && (
-        <div className="mx-auto grid auto-rows-auto grid-cols-2 gap-x-12 gap-y-8">
+        <div className="mx-auto grid grid-flow-row gap-x-12 gap-y-8 lg:auto-rows-auto lg:grid-cols-2">
           <div>
             <Image
               src={data.foto_url}
               alt={data.nama}
               width={500}
               height={500}
-              className="h-100 w-full rounded-lg object-cover"
+              className="h-50 w-full rounded-lg object-cover lg:h-100"
             />
           </div>
           <div className="flex flex-col justify-between">
@@ -106,16 +108,20 @@ export default function DetailPedagang({ params }: Props) {
                 {data.nama}
               </h1>
               <p className="mt-4 text-lg">{data?.deskripsi}</p>
-              <div className="mt-8 grid grid-cols-5 gap-x-2 gap-y-4">
-                <span className="col-span-1 text-foreground/65">Buka</span>
+              <div className="mt-8 grid grid-cols-6 gap-x-2 gap-y-4 lg:grid-cols-5">
+                <span className="col-span-2 text-foreground/65 lg:col-span-1">
+                  Buka
+                </span>
                 <span className="col-span-4">
                   {FormatedTime(data.jam_buka)}
                 </span>
-                <span className="col-span-1 text-foreground/65">Tutup</span>
+                <span className="col-span-2 text-foreground/65 lg:col-span-1">
+                  Tutup
+                </span>
                 <span className="col-span-4">
                   {FormatedTime(data.jam_tutup)}
                 </span>
-                <span className="col-span-1 text-foreground/65">
+                <span className="col-span-2 text-foreground/65 lg:col-span-1">
                   Hari mangkal
                 </span>
                 <span className="col-span-4">
@@ -124,16 +130,23 @@ export default function DetailPedagang({ params }: Props) {
                 <span></span>
               </div>
             </div>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex flex-wrap gap-4">
               <Button
-                variant={'outline'}
+                variant={favorite ? 'default' : 'outline'}
                 size={'icon'}
                 className="size-10 rounded-md"
+                onClick={() => {
+                  setFavorite(!favorite);
+                  toast.info('Fitur ini masih dalam pengembangan');
+                }}
               >
                 <Heart />
               </Button>
               <Button asChild variant={'default'} size={'lg'}>
-                <Link href={`tel:${data.no_hp}`}>Hubungi penjuals</Link>
+                <Link href={`tel:${data.no_hp}`}>
+                  <Phone />
+                  <span className="hidden lg:block">Hubungi penjual</span>
+                </Link>
               </Button>
               <Button asChild variant={'outline'} size={'lg'}>
                 <Link
@@ -146,7 +159,7 @@ export default function DetailPedagang({ params }: Props) {
               </Button>
             </div>
           </div>
-          <div className="col-span-2 h-100">
+          <div className="h-100 lg:col-span-2">
             <MyMap
               center={[data.lokasi.latitude, data.lokasi.longitude]}
               position={[data.lokasi.latitude, data.lokasi.longitude]}
