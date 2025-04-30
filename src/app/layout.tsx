@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description:
       'Jelajahi peta untuk menemukan makanan kaki lima favoritmu mulai dari bakso keliling, sate gerobak, hingga es doger yang legendaris.',
     url: 'https://carijajan.vercel.app',
-    siteName: 'Mauva',
+    siteName: 'Cari Jajan',
     images: [
       {
         url: 'https://carijajan.vercel.app/og.png',
