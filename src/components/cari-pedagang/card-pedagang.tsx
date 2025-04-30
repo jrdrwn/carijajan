@@ -8,6 +8,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -77,7 +78,10 @@ export default function CardPedagang(pedagang: IPedagang) {
         size={'icon'}
         variant={favorite ? 'default' : 'secondary'}
         className="absolute top-33 right-8"
-        onClick={() => setFavorite(!favorite)}
+        onClick={() => {
+          setFavorite(!favorite);
+          toast.info('Fitur ini masih dalam pengembangan');
+        }}
       >
         <Heart />
       </Button>

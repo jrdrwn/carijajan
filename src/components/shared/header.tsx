@@ -18,6 +18,7 @@ import { cn } from '@/lib/utils';
 import { Menu, MousePointerClick } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { toast } from 'sonner';
 
 export default function Header() {
   const menus = [
@@ -70,7 +71,11 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center gap-4">
-          <Button>Masuk</Button>
+          <Button
+            onClick={() => toast.info('Fitur ini masih dalam pengembangan')}
+          >
+            Masuk
+          </Button>
           <Sheet>
             <SheetTrigger asChild>
               <Button

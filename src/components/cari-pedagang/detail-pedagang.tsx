@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import { toast } from 'sonner';
 
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -134,7 +135,10 @@ export default function DetailPedagang({ params }: Props) {
                 variant={favorite ? 'default' : 'outline'}
                 size={'icon'}
                 className="size-10 rounded-md"
-                onClick={() => setFavorite(!favorite)}
+                onClick={() => {
+                  setFavorite(!favorite);
+                  toast.info('Fitur ini masih dalam pengembangan');
+                }}
               >
                 <Heart />
               </Button>

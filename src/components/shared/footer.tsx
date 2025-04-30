@@ -19,8 +19,8 @@ function LinkGroup(links: LinkItem[]) {
 
 export default function Footer() {
   const footerLinks: LinkItem[] = [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
+    { name: 'Privacy Policy', href: '/#' },
+    { name: 'Terms of Service', href: '/#' },
   ];
 
   return (
